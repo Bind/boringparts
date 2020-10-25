@@ -1,1 +1,36 @@
-# Hello World
+export const meta = {
+  title: "",
+  description: ``,
+  date: "",
+  authors: [""],
+  image: "",
+  discussion: "",
+};
+
+```js
+import { Transition } from "@tailwindui/react";
+import { useState } from "react";
+
+function MyComponent() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div>
+      <button onClick={() => setIsOpen(!isOpen)}>Toggle</button>
+      <Transition
+        show={isOpen}
+        enter="transition-opacity duration-75"
+        enterFrom="opacity-0"
+        enterTo="opacity-100"
+        leave="transition-opacity duration-150"
+        leaveFrom="opacity-100"
+        leaveTo="opacity-0"
+      >
+        {/* Will fade in and out */}
+      </Transition>
+    </div>
+  );
+}
+```
+
+<!--more-->
