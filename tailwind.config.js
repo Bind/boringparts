@@ -1,3 +1,4 @@
+const mdx = require('@mdx-js/mdx')
 module.exports = {
   future: {
     // removeDeprecatedGapUtilities: true,

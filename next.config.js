@@ -65,7 +65,7 @@ module.exports = withBundleAnalyzer({
       oneOf: [
         {
           resourceQuery: /preview/,
-          use: [
+          use: [  
             ...mdx,
             createLoader(function (src) {
               if (src.includes("<!--more-->")) {
@@ -89,7 +89,6 @@ module.exports = withBundleAnalyzer({
                 "export default (props) => <Post meta={meta} {...props} />",
               ].join("\n");
 
-              console.log(content);
               if (content.includes("<!--more-->")) {
                 return this.callback(
                   null,
