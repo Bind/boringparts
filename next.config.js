@@ -65,7 +65,7 @@ module.exports = withBundleAnalyzer({
       oneOf: [
         {
           resourceQuery: /preview/,
-          use: [  
+          use: [
             ...mdx,
             createLoader(function (src) {
               if (src.includes("<!--more-->")) {

@@ -3,3 +3,39 @@
 /* purgecss end ignore */
 @tailwind components;
 @tailwind utilities;
+
+body {
+  background-color: #859900; /* keyword */
+
+  background-color: #073642; /*caret*/
+  background-color: #268bd2;
+  background-color: #657b83; /*foreground*/
+  background-color: #eee8d5; /*gutter*/
+  background-color: #eee8d5; /*invisibles*/
+  background-color: #eee8d5; /*invisible*/
+  background-color: #3f3d3812; /*lineHighlight*/
+  background-color: #93a1a140; /*selection*/
+  background-color: #93a1a126; /*inactiveSelection*/
+  background-color: #c0c4bb; /*selectionBorder*/
+  background-color: #3f3d3812; /*guide*/
+  background-color: #268bd2; /*activeLinkForeground*/
+  background-color: #2aa1981a; /*selectionHighlight*/
+  background-color: #2aa1981a; /*hoverHighlight*/
+  background-color: #85990033; /*findMatchHighlight*/
+  background-color: #8599004d; /*currentFindMatchHighlight*/
+  background-color: #d336821a; /*wordHighlight*/
+  background-color: #d3368233; /*wordHighlightStrong*/
+  background-color: #d336824d; /*referenceHighlight*/
+  background-color: #6c71c41a; /*rangeHighlight*/
+  background-color: #6c71c433; /*findRangeHighlight*/
+  background-color: #fdf6e3; /*background*/
+}
+
+.dollarsign {
+  position: relative;
+}
+.dollarsign::after {
+  content: "";
+  position: absolute;
+  right: calc(100% + 1rem);
+}

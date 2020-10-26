@@ -1,0 +1,48 @@
+export const meta = {
+  title: "React Lists & Keys ",
+  description: ``,
+  date: "2020-10-25T14:35:21.659Z",
+  authors: ["Doug Binder"],
+  tags: ["react"],
+  image: "",
+};
+
+In the context of [rendering lists in react](https://reactjs.org/docs/lists-and-keys.html), the key prop is used so that React can track the element across render cycles, to try and prevent a re-render.
+
+<!--more-->
+
+<br />
+
+```js
+const ExampleList = ({ data }) => {
+  return data.map((d) => {
+    return <Example key={d.id} {...d}></Example>;
+  });
+};
+
+const data = [
+  {id: '1',...},
+  {id: '2',...},
+  {id: '3',...}
+]
+
+<ExampleList data={data} />;
+```
+
+<br />
+
+By running the key generation as part of the map function, you're guaranteeing a different id for each render, and missing out on performance gains. Across our web app, we see images flash as part of lists. My hunch is that they are re-rendering and re-fetching the image due to this issue.
+
+<br />
+
+```js import {v4} from "uuid";
+const example = ({ items }) => {
+  return items.map((i) => {
+    return <div key={v4()}>{items.text}></div>;
+  });
+};
+```
+
+```
+
+```

@@ -26,86 +26,44 @@ export default function Post({ meta, children, posts }) {
   const next = posts[postIndex - 1];
 
   return (
-    <article className="xl:divide-y xl:divide-gray-200">
+    <article className="">
       <Head>
-        <title>{meta.title} – WindSprint</title>
+        <title>{meta.title} – Boring parts</title>
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@tailwindcss" />
         <meta name="twitter:creator" content="@tailwindcss" />
         <meta name="twitter:title" content={`${meta.title} – Tailwind CSS`} />
         <meta name="twitter:description" content={meta.description} />
-        <meta
-          name="twitter:image"
-          content={meta.image}
-        />
-        <meta
-          property="og:url"
-          content={router.pathname}
-        />
+        <meta name="twitter:image" content={meta.image} />
+        <meta property="og:url" content={router.pathname} />
         <meta property="og:type" content="article" />
         <meta property="og:title" content={meta.title} />
         <meta property="og:description" content={meta.description} />
-        <meta
-          property="og:image"
-          content={meta.image}
-        />
+        <meta property="og:image" content={meta.image} />
         <meta name="description" content={meta.description}></meta>
       </Head>
-      <header className="pt-6 xl:pb-10">
-        <div className="space-y-1 text-center">
-          <dl className="space-y-10">
+      <header className="py-6">
+        <div>
+          <div>
+            <PageTitle>{meta.title || "No Title Set"}</PageTitle>
+          </div>
+          <dl>
             <div>
               <dt className="sr-only">Published on</dt>
-              <dd className="text-base leading-6 font-medium text-gray-500">
+              <dd className="text leading-6 font-medium text-gray-500">
                 <time dateTime={meta.date}>
-                  {postDateTemplate.render(new Date(meta.date || new Date().getTime()))}
+                  {postDateTemplate.render(
+                    new Date(meta.date || new Date().getTime())
+                  )}
                 </time>
               </dd>
             </div>
           </dl>
-          <div>
-            <PageTitle>{meta.title || "No Title Set"}</PageTitle>
-          </div>
         </div>
       </header>
-      <div
-        className="divide-y xl:divide-y-0 divide-gray-200 xl:grid xl:grid-cols-4 xl:col-gap-6 pb-16 xl:pb-20"
-        style={{ gridTemplateRows: "auto 1fr" }}
-      >
-        <dl className="pt-6 pb-10 xl:pt-11 xl:border-b xl:border-gray-200">
-          <dt className="sr-only">Authors</dt>
-          <dd>
-            <ul className="flex justify-center xl:block space-x-8 sm:space-x-12 xl:space-x-0 xl:space-y-8">
-              {meta.authors.map((author) => (
-                <li
-                  key={author.twitter}
-                  className="flex items-center space-x-2"
-                >
-                  <img
-                    src={author.avatar}
-                    alt=""
-                    className="w-10 h-10 rounded-full"
-                  />
-                  <dl className="text-sm font-medium leading-5 whitespace-no-wrap">
-                    <dt className="sr-only">Name</dt>
-                    <dd className="text-gray-900">{author.name}</dd>
-                    <dt className="sr-only">Twitter</dt>
-                    <dd>
-                      <a
-                        href={`https://twitter.com/${author.twitter}`}
-                        className="text-teal-500 hover:text-teal-600"
-                      >
-                        {author.twitter}
-                      </a>
-                    </dd>
-                  </dl>
-                </li>
-              ))}
-            </ul>
-          </dd>
-        </dl>
-        <div className="divide-y divide-gray-200 xl:pb-0 xl:col-span-3 xl:row-span-2">
-          <div className="prose max-w-none pt-10 pb-8">
+      <div className="pb-16 xl:pb-20" style={{ gridTemplateRows: "auto 1fr" }}>
+        <div className=" xl:pb-0 xl:col-span-3 xl:row-span-2">
+          <div className="prose max-w-none  pb-8">
             <MDXProvider components={mdxComponents}>{children}</MDXProvider>
           </div>
           {meta.discussion && (
@@ -151,13 +109,6 @@ export default function Post({ meta, children, posts }) {
               )}
             </div>
           )}
-          <div className="pt-8">
-            <Link href="/">
-              <a className="text-teal-500 hover:text-teal-600">
-                &larr; Back to the blog
-              </a>
-            </Link>
-          </div>
         </footer>
       </div>
     </article>
