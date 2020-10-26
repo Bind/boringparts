@@ -36,6 +36,7 @@ module.exports = {
           beige: "#FDF6E3",
           primary: "#073642",
           highlight: "#268bd2",
+          referencehighlight: "#d336824d",
           green: "#b5f4a5",
           yellow: "#ffe484",
           purple: "#d9a9ff",

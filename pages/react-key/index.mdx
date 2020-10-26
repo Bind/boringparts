@@ -3,7 +3,7 @@ export const meta = {
   description: ``,
   date: "2020-10-25T14:35:21.659Z",
   authors: ["Doug Binder"],
-  tags: ["react"],
+  tags: ["react", "basics", "boring"],
   image: "",
 };
 
@@ -35,7 +35,8 @@ By running the key generation as part of the map function, you're guaranteeing a
 
 <br />
 
-```js import {v4} from "uuid";
+```js
+import { v4 } from "uuid";
 const example = ({ items }) => {
   return items.map((i) => {
     return <div key={v4()}>{items.text}></div>;
