@@ -30,22 +30,7 @@ module.exports = {
     },
   },
   theme: {
-    extend: {
-      colors: {
-        code: {
-          beige: "#FDF6E3",
-          primary: "#073642",
-          highlight: "#268bd2",
-          referencehighlight: "#d336824d",
-          green: "#b5f4a5",
-          yellow: "#ffe484",
-          purple: "#d9a9ff",
-          red: "#ff8383",
-          blue: "#93ddfd",
-          white: "#fff",
-        },
-      },
-    },
+    extend: {},
   },
   variants: {},
   plugins: [],

@@ -8,12 +8,9 @@ import { MDXProvider } from "@mdx-js/react";
 const mdxComponents = {
   pre: ({ className, ...props }) => (
     <pre
-      className={`${className} rounded-md bg-gray-800 py-3 px-4 overflow-x-auto`}
+      className={` bg-red ${className} rounded-md  border-black border-solid py-3 px-4 overflow-x-auto`}
       {...props}
     />
-  ),
-  "pre.code": ({ className, ...props }) => (
-    <code className={`${className} text-gray-200`} {...props} />
   ),
 };
 

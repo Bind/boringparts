@@ -13,7 +13,7 @@ In the context of [rendering lists in react](https://reactjs.org/docs/lists-and-
 
 <br />
 
-```js
+```jsx
 const ExampleList = ({ data }) => {
   return data.map((d) => {
     return <Example key={d.id} {...d}></Example>;
@@ -35,15 +35,11 @@ By running the key generation as part of the map function, you're guaranteeing a
 
 <br />
 
-```js
+```jsx
 import { v4 } from "uuid";
 const example = ({ items }) => {
   return items.map((i) => {
     return <div key={v4()}>{items.text}></div>;
   });
 };
-```
-
-```
-
 ```
