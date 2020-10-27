@@ -7,7 +7,7 @@ module.exports = {
   purge: {
     // Learn more on https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css
     mode: "all",
-    content: ["./pages/**/*.mdx", "./src/**/*.js", "./next.config.js"],
+    content: ["./{src,pages}/**/*.{js,mdx}", "./next.config.js"],
     options: {
       extractors: [
         {

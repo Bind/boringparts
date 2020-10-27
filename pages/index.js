@@ -39,13 +39,13 @@ export default function Home() {
                   <div className="">
                     <h2 className="text-2xl leading-8 font-bold tracking-tight">
                       <Link href={link}>
-                        <a className="text-primary">{meta.title}</a>
+                        <a className="text-gray-900">{meta.title}</a>
                       </Link>
                     </h2>
                     <div className="flex flex-row items-center">
                       <dl className="flex flex-row items-center justify-center">
                         <dt className="sr-only">Published on</dt>
-                        <dd className="text-base leading-6 font-medium text-primary flex align-center justify-center">
+                        <dd className="text-base leading-6 font-medium text-gray-900 flex align-center justify-center">
                           <time
                             className="flex justify-center align-center"
                             dateTime={meta.date}
@@ -54,7 +54,7 @@ export default function Home() {
                           </time>
                         </dd>
                       </dl>
-                      <div className="space-x-1 pl-3 flex flex-row items-center">
+                      <div className="space-x-1 px-1 flex flex-row items-center">
                         {meta.tags.map((t) => {
                           return <TagText tag={t} link={`/${t}`}></TagText>;
                         })}
@@ -67,7 +67,7 @@ export default function Home() {
                   <div className="text-base leading-6 font-medium">
                     <Link href={link}>
                       <a
-                        className="text-primary hover:text-gray-700"
+                        className="text-gray-900 "
                         aria-label={`Read "${meta.title}"`}
                       >
                         Read more &rarr;
