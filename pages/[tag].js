@@ -47,13 +47,13 @@ export default function Home() {
                     <div className="">
                       <h2 className="text-2xl leading-8 font-bold tracking-tight">
                         <Link href={link}>
-                          <a className="text-gray-900">{meta.title}</a>
+                          <a className="text-primary">{meta.title}</a>
                         </Link>
                       </h2>
                       <div className="flex flex-row items-center">
                         <dl className="flex flex-row items-center justify-center">
                           <dt className="sr-only">Published on</dt>
-                          <dd className="text-base leading-6 font-medium text-gray-500 flex align-center justify-center">
+                          <dd className="text-base leading-6 font-medium text-primary flex align-center justify-center">
                             <time
                               className="flex justify-center align-center"
                               dateTime={meta.date}
@@ -75,7 +75,7 @@ export default function Home() {
                     <div className="text-base leading-6 font-medium">
                       <Link href={link}>
                         <a
-                          className="text-teal-500 hover:text-teal-600"
+                          className="text-primary hover:text-gray-700"
                           aria-label={`Read "${meta.title}"`}
                         >
                           Read more &rarr;

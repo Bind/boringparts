@@ -47,7 +47,7 @@ export default function Post({ meta, children, posts }) {
           <dl>
             <div>
               <dt className="sr-only">Published on</dt>
-              <dd className="text leading-6 font-medium text-gray-500">
+              <dd className="text leading-6 font-medium text-primary">
                 <time dateTime={meta.date}>
                   {postDateTemplate.render(
                     new Date(meta.date || new Date().getTime())
