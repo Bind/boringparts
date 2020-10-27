@@ -1,4 +1,4 @@
-/*
+/* purgecss start ignore */ /*
  Solarized Color Schemes originally by Ethan Schoonover
  http://ethanschoonover.com/solarized
 
@@ -152,3 +152,4 @@ pre[class*="language-"] {
 .token.entity {
   cursor: help;
 }
+/* purgecss end ignore */
