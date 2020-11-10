@@ -1,5 +1,6 @@
 import Head from "next/head";
 import PageTitle from "@/components/PageTitle";
+
 import tinytime from "tinytime";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -12,6 +13,19 @@ const mdxComponents = {
       {...props}
     />
   ),
+  blockquote: ({ className, ...props }) => (
+    <blockquote
+      className={` bg-red-200 text-xl text-red-500 backg${className} rounded-md   border-solid py-3 px-4 overflow-x-auto`}
+      {...props}
+    ></blockquote>
+  ),
+  a: ({ className, ...props }) => {
+    return (
+      <Link {...props}>
+        <a className={`${className} font-bold underline`} {...props}></a>
+      </Link>
+    );
+  },
 };
 
 const postDateTemplate = tinytime("{dddd}, {MMMM} {DD}, {YYYY}");
