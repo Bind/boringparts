@@ -1,7 +1,7 @@
 import ConsoleErrorComponent from "@/components/ConsoleErrorComponent";
 export const meta = {
   title: "React Lists & Keys ",
-  description: ``,
+  description: `anti-patterns for react keys and performance implications`,
   date: "2020-10-25T14:35:21.659Z",
   authors: ["Doug Binder"],
   tags: ["react", "basics"],
@@ -37,7 +37,7 @@ the key prop is used to help React track items in a list as they are updated, ad
 
 <br />
 
-The [React docs](https://reactjs.org/docs/lists-and-keys.html) have a thoroughly documented list of use cases on how to properly generate a key prop for an item in an array. Ultimately, the best case is to derive the key from the list item itself.
+The [React docs](https://reactjs.org/docs/lists-and-keys.html) have thoroughly documented how to properly generate a key prop for an item in an array. Ultimately, the best case is to derive the key from the list item itself.
 
 <br />
 
@@ -59,11 +59,11 @@ const data = [
 
 <br />
 
-Back to our issue, by calling `v4()` as part of the map function, we're guaranteeing a different id for each render. If a single item changes we're telling react to re-render the whole list from scratch, as _none_ of the keys will match. This will cause a significant amount of noise in the UI, and with this example caused the list to re-render on every update to the derived props. Having any key set silences the React warning, which allowed
+Back to our issue, by calling `v4()` as part of the map function, we're guaranteeing a different id for each render. If a single item changes we're telling react to **re-render the whole list from scratch**, as _none_ of the keys will match. This will cause a significant amount of noise in the UI. This ironically silences React's warning about setting a key prop, even though the above snippet has _worse_ performance than not setting one at all.
 
 <br />
 
-Our contrived example causes a lot of re-renders, but wouldn't cause that many problems with a relatively static set of props. Some of the project's other technical debt exacerbated this problem... You don't need to dig to far into the example below. Re-rendering a list of items often re-fetches its content eg. images, and with an especially noisy redux store that can get out of hand quickly.
+Our contrived example causes a lot of re-renders, but wouldn't cause that many problems with a static set of props. Some of the project's other technical debt exacerbated this problem... You don't need to dig too far into the example below. Re-rendering a list of items often re-fetches its content eg. images. With a noisy redux store, things get out of hand quickly.
 
 ```jsx
 import { v4 } from "uuid";
@@ -106,6 +106,6 @@ const mapStateToProps = (state) => ({
 export default connect(mapStateToProps)(ExampleCart);
 ```
 
-Any ways, you never quite know what you're going to get when working with existing web applications, but there are low-hanging big-wins if you have an solid under standing of the basics and go looking for them.
+Any ways, you never quite know what you're going to get when working with existing web applications, but you'd be surprised how often there are **low-hanging big-wins** if you have an solid under standing of the basics and go looking for them.
 
 TODO: Insert absolutely insane anonymous network chart of all of the images being fetched.
