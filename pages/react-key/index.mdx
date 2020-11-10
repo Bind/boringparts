@@ -20,7 +20,7 @@ const example = ({ items }) => {
 };
 ```
 
-This seems inocous enough, a simple call to get an ID for a list item. At first glance, I assumed `v4()` was doing something clever to ensure it was getting consistent keys. Having recently taken over the project I made a note to investigate it later and moved on to more urgetn task that was on my plate. ** _Spoiler:_ ooooh boy, this was not something clever.**
+This seems innocuous enough, a simple call to get an ID for a list item. At first glance, I assumed `v4()` was doing something clever to ensure it was getting consistent keys. Having recently taken over the project I made a note to investigate it later and moved on to more urgent task that was on my plate. ** _Spoiler:_ ooooh boy, this was not something clever.**
 
 <!--more-->
 
@@ -59,11 +59,11 @@ const data = [
 
 <br />
 
-Back to our issue, by calling `v4()` as part of the map function, we're guaranteeing a different id for each render. If a single item changes we're telling react to rerender the whole list from scratch, as _none_ of the keys will match. This will cause a signficant amount of noise in the UI, and with this example caused the list to re-render on every update to the derived props. Having any key set silences the React warning, which allowed
+Back to our issue, by calling `v4()` as part of the map function, we're guaranteeing a different id for each render. If a single item changes we're telling react to re-render the whole list from scratch, as _none_ of the keys will match. This will cause a significant amount of noise in the UI, and with this example caused the list to re-render on every update to the derived props. Having any key set silences the React warning, which allowed
 
 <br />
 
-Our contrived example causes a lot of rerenders, but wouldn't cause that many problems with a relatively static set of props. Some of the project's other technical debt exacerbated this problem... You don't need to dig to far into the example below. Rerendering a list of items often refetches its content eg. images, and with an especially noisy redux store that can get out of hand quickly.
+Our contrived example causes a lot of re-renders, but wouldn't cause that many problems with a relatively static set of props. Some of the project's other technical debt exacerbated this problem... You don't need to dig to far into the example below. Re-rendering a list of items often re-fetches its content eg. images, and with an especially noisy redux store that can get out of hand quickly.
 
 ```jsx
 import { v4 } from "uuid";
@@ -108,4 +108,4 @@ export default connect(mapStateToProps)(ExampleCart);
 
 Any ways, you never quite know what you're going to get when working with existing web applications, but there are low-hanging big-wins if you have an solid under standing of the basics and go looking for them.
 
-TODO: Insert absolutely insane anonymized network chart of all of the images being fetched.
+TODO: Insert absolutely insane anonymous network chart of all of the images being fetched.
