@@ -30,8 +30,8 @@ export default function TableOfContents({ children }) {
           <br />
           <strong>
             {" "}
-            PS. I run a consulting firm, and I'm very good at fixing the
-            terrible decisions made by the previous firm you hired.
+            PS. I run a consulting firm focused on building high-performance,
+            bad-ass web applications.
           </strong>
         </p>
       </div>
