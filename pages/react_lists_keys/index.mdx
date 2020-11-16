@@ -20,7 +20,7 @@ const example = ({ items }) => {
 };
 ```
 
-This seems innocuous enough, a simple call to get an ID for a list item. At first glance, I assumed `v4()` was doing something clever to ensure it was getting consistent keys. Having recently taken over the project I made a note to investigate it later and moved on to more urgent task that was on my plate. ** _Spoiler:_ ooooh boy, this was not something clever.**
+At first glance this seems innocuous enough, a simple call to get an ID for a list item. I assumed `v4()` was doing something clever to ensure it was getting consistent keys. Having recently taken over the project I made a note to investigate it later and moved on to a more urgent task. ** _Spoiler:_ ooooh boy, this was not something clever.**
 
 <!--more-->
 
@@ -59,7 +59,7 @@ const data = [
 
 <br />
 
-Back to our issue, by calling `v4()` as part of the map function, we're guaranteeing a different id for each render. If a single item changes we're telling react to **re-render the whole list from scratch**, as _none_ of the keys will match. This will cause a significant amount of noise in the UI. This ironically silences React's warning about setting a key prop, even though the above snippet has _worse_ performance than not setting one at all.
+Back to our issue, by calling `v4()` as part of the map function, we're guaranteeing a different id for each render. If a single item changes we're telling react to **re-render the whole list from scratch**, as _none_ of the keys will match. This will cause a significant amount of noise in the UI. This ironically silences React's warning about setting a key prop, even though the above snippet has similar if not _worse_ performance than not setting one at all.
 
 <br />
 
@@ -106,6 +106,8 @@ const mapStateToProps = (state) => ({
 export default connect(mapStateToProps)(ExampleCart);
 ```
 
-Any ways, you never quite know what you're going to get when working with existing web applications, but you'd be surprised how often there are **low-hanging big-wins** if you have an solid under standing of the basics and go looking for them.
+Any ways, you never quite know what you're going to get when working with existing web applications, but you'd be surprised how often there are **low-hanging big-wins** if you have a solid understanding of the basics.
 
-TODO: Insert absolutely insane anonymous network chart of all of the images being fetched.
+<br />
+
+`#TODO: Insert network chart with all of the images being fetched and re-fetched and re-re-fetched....`
